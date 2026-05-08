@@ -35,7 +35,7 @@ function Get-ReferenceMakeCommand {
         return $make
     }
 
-    $wingetMake = 'C:\Users\PC\AppData\Local\Microsoft\WinGet\Packages\BrechtSanders.WinLibs.POSIX.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\mingw64\bin\mingw32-make.exe'
+    $wingetMake = "D:\MinGW\mingw64\bin\mingw32-make.exe"
     if (Test-Path $wingetMake) {
         return $wingetMake
     }
@@ -49,7 +49,7 @@ function Get-ReferenceGppCommand {
         return $gpp
     }
 
-    $wingetGpp = 'C:\Users\PC\AppData\Local\Microsoft\WinGet\Packages\BrechtSanders.WinLibs.POSIX.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\mingw64\bin\g++.exe'
+    $wingetGpp = "D:\MinGW\mingw64\bin\g++.exe"
     if (Test-Path $wingetGpp) {
         return $wingetGpp
     }
@@ -76,7 +76,7 @@ function Get-ReferenceCase30ToolchainEnvironment {
     }
 
     $pathEntries = @($toolchainBin)
-    foreach ($extra in @('C:\raylib\lib', 'C:\raylib\raylib\src')) {
+    foreach ($extra in @('D:\raylib\lib', 'D:\raylib\raylib\src')) {
         if (Test-Path $extra) {
             $pathEntries += $extra
         }
@@ -103,26 +103,26 @@ function Ensure-ReferenceRaylib {
     Expand-ReferenceZip -ArchivePath $Paths.RaylibZip -Destination $Paths.RaylibExtractRoot | Out-Null
 
     $extractedRoot = Get-ChildItem -Path $Paths.RaylibExtractRoot -Directory | Select-Object -First 1
-    if ($null -ne $extractedRoot -and -not (Test-Path 'C:\raylib')) {
+    if ($null -ne $extractedRoot -and -not (Test-Path 'D:\raylib')) {
         try {
-            Ensure-ReferenceDirectory -Path 'C:\raylib' | Out-Null
-            Copy-Item -Path (Join-Path $extractedRoot.FullName '*') -Destination 'C:\raylib' -Recurse -Force
-            $notes.Add('Copied raylib into C:\raylib')
+            Ensure-ReferenceDirectory -Path 'D:\raylib' | Out-Null
+            Copy-Item -Path (Join-Path $extractedRoot.FullName '*') -Destination 'D:\raylib' -Recurse -Force
+            $notes.Add('Copied raylib into D:\raylib')
         }
         catch {
-            $notes.Add("Failed to copy raylib into C:\raylib: $($_.Exception.Message)")
+            $notes.Add("Failed to copy raylib into D:\raylib: $($_.Exception.Message)")
         }
     }
 
-    $legacySrc = Ensure-ReferenceDirectory -Path 'C:\raylib\raylib\src'
+    $legacySrc = Ensure-ReferenceDirectory -Path 'D:\raylib\raylib\src'
     foreach ($header in @('raylib.h', 'raymath.h', 'rlgl.h')) {
-        $sourceHeader = Join-Path 'C:\raylib\include' $header
+        $sourceHeader = Join-Path 'D:\raylib\include' $header
         if (Test-Path $sourceHeader) {
             Copy-Item -Path $sourceHeader -Destination (Join-Path $legacySrc $header) -Force
         }
     }
     foreach ($library in @('libraylib.a', 'libraylibdll.a', 'raylib.dll')) {
-        $sourceLibrary = Join-Path 'C:\raylib\lib' $library
+        $sourceLibrary = Join-Path 'D:\raylib\lib' $library
         if (Test-Path $sourceLibrary) {
             Copy-Item -Path $sourceLibrary -Destination (Join-Path $legacySrc $library) -Force
         }
@@ -132,7 +132,7 @@ function Ensure-ReferenceRaylib {
         Set-Content -Path $rcData -Value '' -Encoding ASCII
     }
 
-    $rayguiHeader = 'C:\raylib\raygui\src\raygui.h'
+    $rayguiHeader = 'D:\raylib\raygui\src\raygui.h'
     if (-not (Test-Path $rayguiHeader)) {
         $rayguiDir = Ensure-ReferenceDirectory -Path (Split-Path $rayguiHeader -Parent)
         $rayguiUrl = 'https://raw.githubusercontent.com/raysan5/raygui/4.0/src/raygui.h'

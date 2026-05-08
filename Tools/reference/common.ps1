@@ -148,7 +148,11 @@ function Get-ReferenceCondaExecutable {
     foreach ($path in @(
         'C:\ProgramData\anaconda3\Scripts\conda.exe',
         'C:\ProgramData\anaconda3\condabin\conda.bat',
-        'C:\ProgramData\anaconda3\Library\bin\conda.bat'
+        'C:\ProgramData\anaconda3\Library\bin\conda.bat',
+        "$env:USERPROFILE\miniconda3\Scripts\conda.exe",
+        "$env:USERPROFILE\miniconda3\condabin\conda.bat",
+        "$env:USERPROFILE\anaconda3\Scripts\conda.exe",
+        "$env:USERPROFILE\anaconda3\condabin\conda.bat"
     )) {
         $candidates.Add($path)
     }
@@ -197,7 +201,10 @@ function Get-ReferenceUnrealEditors {
     $roots = @(
         'C:\Program Files\Epic Games',
         'D:\Program Files\Epic Games',
-        'E:\Program Files\Epic Games'
+        'E:\Program Files\Epic Games',
+        'G:\Game',
+        'D:\Game',
+        'D:\Engines'
     ) | Where-Object { Test-Path $_ }
 
     $items = New-Object System.Collections.Generic.List[object]
@@ -295,7 +302,7 @@ function Get-ReferencePreflight {
         ue57           = [bool]($ue | Where-Object { $_.Version -like '5.7*' })
         gpp            = [bool](Resolve-ReferenceCommand -Name 'g++')
         make           = [bool](Resolve-ReferenceCommand -Name 'make')
-        raylib         = Test-Path 'C:\raylib'
+        raylib         = Test-Path 'D:\raylib'
         gpu_names      = @(Get-ReferenceGpuNames)
         gamepad_names  = @(Get-ReferenceGamepadNames)
         fbxsdk_root    = $env:FBXSDK_ROOT
@@ -405,11 +412,10 @@ function Ensure-ReferenceCondaEnv {
 
     $conda = Get-ReferenceCondaExecutable
 
-    $json = & $conda env list --json | Out-String
-    $parsed = $json | ConvertFrom-Json
+    $output = & $conda env list
     $exists = $false
-    foreach ($path in @($parsed.envs)) {
-        if ([System.IO.Path]::GetFileName($path) -eq $Context.EnvName) {
+    foreach ($line in $output) {
+        if ($line -match "^\s*([^\s]+)?\s*\*?\s+(.+[\\\/]$($Context.EnvName))$") {
             $exists = $true
             break
         }
@@ -433,11 +439,10 @@ function Get-ReferenceCondaEnvPath {
 
     $conda = Get-ReferenceCondaExecutable
 
-    $json = & $conda env list --json | Out-String
-    $parsed = $json | ConvertFrom-Json
-    foreach ($path in @($parsed.envs)) {
-        if ([System.IO.Path]::GetFileName($path) -eq $Context.EnvName) {
-            return $path
+    $output = & $conda env list
+    foreach ($line in $output) {
+        if ($line -match "^\s*([^\s]+)?\s*\*?\s+(.+[\\\/]$($Context.EnvName))$") {
+            return $matches[2].Trim()
         }
     }
 

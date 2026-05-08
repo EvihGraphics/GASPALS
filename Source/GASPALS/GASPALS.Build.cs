@@ -13,5 +13,9 @@ public class GASPALS : ModuleRules
 			"Engine",
 			"InputCore"
 		});
+
+		PrivateDependencyModuleNames.AddRange(new string[]
+		{
+		});
 	}
 }
