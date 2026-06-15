@@ -7,7 +7,7 @@ This document defines when C++ reconstruction can be considered accepted.
 ## Gate G0: Compile / Load
 
 ```text
-[ ] GASPALSNative plugin compiles. If a real Plugins/GASPALSShadow directory exists in the checkout, it also compiles; do not require or assume it when absent.
+[ ] GASPALSNative plugin compiles. Do NOT depend on or compile Plugins/GASPALSShadow/ — it is temporarily deprecated and must not be used as the PLAN-2 native scaffold until explicitly reactivated.
 [ ] Native component/class loads in editor.
 [ ] No startup crash.
 [ ] No missing asset hard failure.

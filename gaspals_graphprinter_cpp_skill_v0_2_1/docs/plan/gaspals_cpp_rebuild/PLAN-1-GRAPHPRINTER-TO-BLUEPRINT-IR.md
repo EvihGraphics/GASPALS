@@ -117,10 +117,10 @@ Acceptance:
 ## Deliverables
 
 ```text
-Saved/Screenshots/Blueprints/_graph_module_catalog.json
-Saved/Screenshots/Blueprints/_graph_module_catalog.tsv
-Saved/Screenshots/Blueprints/_chunk_extract/**
-Saved/Screenshots/Blueprints/_blueprint_ir/**
-Saved/Screenshots/Blueprints/_stitch/**
+Graph/Blueprints/_graph_module_catalog.json
+Graph/Blueprints/_graph_module_catalog.tsv
+Graph/Blueprints/_chunk_extract/**
+Graph/Blueprints/_blueprint_ir/**
+Graph/Blueprints/_stitch/**
 Docs/GraphPrinter_FailureDiagnostics.md
 ```

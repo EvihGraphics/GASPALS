@@ -72,15 +72,15 @@ Avoid hard-coded local paths in final automation.
 GraphPrinter capture must produce:
 
 ```text
-Saved/Screenshots/Blueprints/_asset_list.json
-Saved/Screenshots/Blueprints/_index.json
-Saved/Screenshots/Blueprints/_index.txt
-Saved/Screenshots/Blueprints/_graph_module_catalog.json
-Saved/Screenshots/Blueprints/_graph_module_catalog.tsv
-Saved/Screenshots/Blueprints/_chunk_extract/**/*.txt
-Saved/Screenshots/Blueprints/_chunk_extract/**/*.meta.json
-Saved/Screenshots/Blueprints/_blueprint_ir/**/*.json
-Saved/Screenshots/Blueprints/_stitch/**/*.json
+Graph/Blueprints/_asset_list.json
+Graph/Blueprints/_index.json
+Graph/Blueprints/_index.txt
+Graph/Blueprints/_graph_module_catalog.json
+Graph/Blueprints/_graph_module_catalog.tsv
+Graph/Blueprints/_chunk_extract/**/*.txt
+Graph/Blueprints/_chunk_extract/**/*.meta.json
+Graph/Blueprints/_blueprint_ir/**/*.json
+Graph/Blueprints/_stitch/**/*.json
 Docs/CppRebuildTasks/*.md
 Docs/GraphPrinter_FailureDiagnostics.md
 ```
@@ -188,9 +188,9 @@ Tools/generate_cpp_rebuild_tasks.py
 Input:
 
 ```text
-Saved/Screenshots/Blueprints/_graph_module_catalog.json
-Saved/Screenshots/Blueprints/_blueprint_ir/**/*.json
-Saved/Screenshots/Blueprints/_stitch/**/*.json
+Graph/Blueprints/_graph_module_catalog.json
+Graph/Blueprints/_blueprint_ir/**/*.json
+Graph/Blueprints/_stitch/**/*.json
 ```
 
 Output:

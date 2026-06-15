@@ -72,5 +72,5 @@ Integrated long demos are allowed only after the atomic cases pass.
 ## v0.2.1 Consistency Fixes
 
 - Default start prompt now activates PLAN-1 only; PLAN-2 and PLAN-3 are explicitly deferred unless requested.
-- GASPALSShadow is treated as optional/observe-only and must not be assumed to exist from the disabled .uproject entry.
+- GASPALSShadow is **temporarily deprecated**. Source files exist in `Plugins/GASPALSShadow/` but the plugin is disabled in uproject and must not be extended or depended on until further notice. Do not treat it as the observe-only scaffold for PLAN-2; a separate decision is required before reactivation.
 - Native parity prompt now reads PLAN-2 before PLAN-3.

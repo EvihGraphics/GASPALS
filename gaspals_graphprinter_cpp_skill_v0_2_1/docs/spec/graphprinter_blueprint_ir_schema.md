@@ -9,7 +9,7 @@ This schema defines the normalized Blueprint IR emitted from GraphEditor text ch
 ## File Location
 
 ```text
-Saved/Screenshots/Blueprints/_blueprint_ir/<AssetName>/<GraphName>/<ModuleId>.json
+Graph/Blueprints/_blueprint_ir/<AssetName>/<GraphName>/<ModuleId>.json
 ```
 
 ## Top-Level Schema

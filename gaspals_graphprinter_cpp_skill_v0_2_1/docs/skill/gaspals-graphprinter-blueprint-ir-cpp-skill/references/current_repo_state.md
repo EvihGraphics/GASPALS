@@ -14,7 +14,7 @@ engine association: 5.7
 
 GASPALS is a UE 5.7 project integrating the Game Animation Sample Motion Matching stack with ALS-style overlay layering. Current formal runtime remains Blueprint-driven.
 
-`GASPALSShadow` is present in the project plugin list but disabled. Treat it as a future observe-only/native mirror concept, not as a takeover path. Do not assume an implementation directory exists unless it is present in the checkout.
+`GASPALSShadow` source files exist under `Plugins/GASPALSShadow/` (Observer, Subsystem, MimicKit bridge series). The plugin is disabled in uproject and is **temporarily deprecated** — do not extend it or use it as the native scaffold for PLAN-2. A separate reactivation decision is required before any further work on this plugin.
 
 ## Reference Repositories
 

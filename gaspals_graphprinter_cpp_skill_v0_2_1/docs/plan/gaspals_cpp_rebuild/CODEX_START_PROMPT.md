@@ -63,7 +63,7 @@ Do not implement this pass unless the user explicitly activates PLAN-2. When act
 
 ```text
 1. Add mapping docs for Blueprint variables/functions to C++ fields/methods.
-2. Add an initial GASPALSNative C++ skeleton only when PLAN-2 is explicitly active. If a real Plugins/GASPALSShadow directory exists in the checkout, it may be extended observe-only; do not assume it exists from the .uproject disabled plugin entry alone.
+2. Add an initial GASPALSNative C++ skeleton only when PLAN-2 is explicitly active. Do NOT extend or depend on `Plugins/GASPALSShadow/` — it is temporarily deprecated and must not be used as the PLAN-2 scaffold until explicitly reactivated.
 3. Implement observe-only and mirror-only boundaries.
 4. Do not replace AnimBP main graph.
 5. Do not replace Pose Search databases.

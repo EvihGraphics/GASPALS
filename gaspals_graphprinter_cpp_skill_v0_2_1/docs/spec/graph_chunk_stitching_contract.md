@@ -9,8 +9,8 @@ This contract defines how split chunks are stitched into a global graph view.
 ## Required Output
 
 ```text
-Saved/Screenshots/Blueprints/_stitch/<AssetName>/<GraphName>/stitch_graph.json
-Saved/Screenshots/Blueprints/_stitch/<AssetName>/<GraphName>/stitch_report.md
+Graph/Blueprints/_stitch/<AssetName>/<GraphName>/stitch_graph.json
+Graph/Blueprints/_stitch/<AssetName>/<GraphName>/stitch_report.md
 ```
 
 ## Stitch Graph Schema
