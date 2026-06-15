@@ -1,6 +1,6 @@
 {
 	"FileVersion": 3,
-	"EngineAssociation": "{1EA256D0-457B-ADF7-67E0-9E9E030BCABD}",
+	"EngineAssociation": "5.7",
 	"Category": "",
 	"Description": "",
 	"Modules": [
@@ -24,7 +24,7 @@
 		},
 		{
 			"Name": "GASPALSShadow",
-			"Enabled": true
+			"Enabled": false
 		}
 	]
 }
