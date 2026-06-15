@@ -1,6 +1,6 @@
 {
 	"FileVersion": 3,
-	"EngineAssociation": "{9443EFC0-4768-2E81-66DB-C598EF9B374B}",
+	"EngineAssociation": "5.7",
 	"Category": "",
 	"Description": "",
 	"Modules": [
@@ -25,14 +25,6 @@
 		{
 			"Name": "GASPALSShadow",
 			"Enabled": false
-		},
-		{
-			"Name": "NNERuntimeORT",
-			"Enabled": true
-		},
-		{
-			"Name": "PhysicsControl",
-			"Enabled": true
 		}
 	]
 }
