@@ -87,11 +87,11 @@ The current overlay system is a stable boundary and should remain untouched duri
 
 - `UGASPALSShadowWorldSubsystem`
   - owns the active log session
-  - writes `frames.jsonl` under `Saved/Logs/GASPALSShadow/<timestamp>/`
+  - writes `session.json`, `frames.jsonl`, and `events.jsonl` under `Saved/Logs/GASPALSShadow/<timestamp>/`
 - `UGASPALSShadowObserverComponent`
   - attaches to the currently controlled sandbox character
   - snapshots owner movement, controller rotation, anim instance identity, active montage, and tagged metadata
-  - exposes named float/string hooks so blueprint-side state can be added later without rewriting the plugin API
+  - exposes named metadata and extension-channel hooks so blueprint-side overlay/traversal/chooser state can be added later without rewriting the plugin API
 
 ### Rebinding behavior
 
