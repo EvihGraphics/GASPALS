@@ -11,12 +11,17 @@ public class GASPALSShadow : ModuleRules
             {
                 "Core",
                 "CoreUObject",
-                "Engine"
+                "Engine",
+                "NNE",
+                "PhysicsCore",
+                "RenderCore",
+                "RHI"
             });
 
         PrivateDependencyModuleNames.AddRange(
             new[]
             {
+                "ImageWrapper",
                 "Json",
                 "JsonUtilities"
             });
