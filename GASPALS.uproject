@@ -24,7 +24,7 @@
 		},
 		{
 			"Name": "GASPALSShadow",
-			"Enabled": true
+			"Enabled": false
 		},
 		{
 			"Name": "NNERuntimeORT",
